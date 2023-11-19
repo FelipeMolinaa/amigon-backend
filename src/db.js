@@ -1,11 +1,8 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-    user: 'admin',
-    host: '172.17.0.2',
-    database: 'amigon',
-    password: 'admin',
-    port: 5432,
+    connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 });
 
 module.exports = {
